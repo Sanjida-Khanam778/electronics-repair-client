@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const AddService = () => {
   const { user } = useContext(AuthContext);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const image = form.image.value;
@@ -22,6 +24,18 @@ const AddService = () => {
       email: user?.email,
     };
     console.table(serviceData);
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/addService`,
+        serviceData
+      );
+      console.log(data);
+      form.reset()
+      toast.success('Service Added SuccessFully')
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message)
+    }
   };
   return (
     <div className="my-24 flex items-center justify-center">

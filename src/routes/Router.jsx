@@ -9,6 +9,8 @@ import AddService from "../Layout/Pages/AddService";
 import ManageService from "../Layout/Pages/ManageService";
 import BookedService from "../Layout/Pages/BookedService";
 import ServiceToDo from "../Layout/Pages/ServiceToDo";
+import ServiceDetail from "../Layout/Pages/ServiceDetail";
+import PrivateRoute from "../Components/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,10 @@ const router = createBrowserRouter([
         {
           path: '/add-service',
           element: <AddService></AddService>
+        },
+        {
+          path: '/serviceDetails/:id',
+          element: <PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute>
         },
         {
           path: 'manage-service',

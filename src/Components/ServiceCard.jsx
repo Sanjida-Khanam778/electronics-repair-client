@@ -1,0 +1,65 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { MdOutlinePriceChange } from "react-icons/md";
+import { FaUserCircle } from "react-icons/fa";
+
+const ServiceCard = ({ service }) => {
+  const { title, price, description, image, name, photo, _id } = service;
+
+  return (
+    <div className="flex flex-col md:flex-row items-start border shadow-lg rounded-3xl p-6 hover:shadow-2xl transition w-full mx-auto bg-white dark:bg-gray-800 dark:text-gray-200">
+      {/* Left Column: Image */}
+      <div className="md:w-1/3 w-full h-full mb-4 md:mb-0">
+        <img
+          src={image}
+          className="h-full w-full rounded-3xl object-cover"
+          alt={title}
+        />
+      </div>
+
+      {/* Right Column: Content */}
+      <div className="md:w-2/3 w-full md:pl-6 flex flex-col">
+        {/* Service Title */}
+        <h2 className="text-2xl font-semibold text-[#683edd] mb-3">
+          {title}
+        </h2>
+        
+        {/* Description */}
+        <p className="text-gray-600 dark:text-gray-300 mb-4">
+          {description.length > 99 ? description.substring(0, 99) + "..." : description}
+        </p>
+
+        {/* Provider Info */}
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-3">
+            {photo ? (
+              <img
+                className="h-10 w-10 rounded-full border-2 border-[#683edd]"
+                src={photo}
+                alt={name}
+              />
+            ) : (
+              <FaUserCircle className="h-10 w-10 text-gray-400" />
+            )}
+            <p className="text-sm font-medium text-gray-800 dark:text-gray-300">
+              {name}
+            </p>
+          </div>
+          <div className="flex items-center gap-2 text-lg text-[#683edd] font-bold">
+            <MdOutlinePriceChange className="text-2xl" />
+            ${price}
+          </div>
+        </div>
+
+        {/* View Details Button */}
+        <Link to={`/serviceDetails/${_id}`}>
+          <button className="btn w-full py-2 bg-[#683edd] hover:bg-[#3e0cc9] text-white font-semibold rounded-lg transition">
+            View Details
+          </button>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default ServiceCard;

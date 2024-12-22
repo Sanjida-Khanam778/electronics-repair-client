@@ -11,7 +11,7 @@ const MainLayout = () => {
       <header
         className={`border-b py-2 ${
           theme === "light" ? "bg-slate-50" : "bg-gray-800"
-        } sticky top-0`}
+        } sticky top-0 z-10`}
       >
         <Navbar></Navbar>
       </header>

@@ -21,7 +21,7 @@ const Footer = () => {
 
             <img className=" " src={logoFooter} alt="" />
           </div>
-            <a className="font-bold font-logoFont flex items-center justify-center md:justify-start text-xl md:text-2xl xl:text-4xl text-[#683edd]">
+            <a className="font-bold text-logoFont flex items-center justify-center md:justify-start text-xl md:text-2xl xl:text-4xl text-[#683edd]">
               ElectroCare
             </a>
             <p className="w-10/12 md:w-full mx-auto text-center md:text-start">
@@ -32,13 +32,11 @@ const Footer = () => {
 
           <div>
         
-            <div className="grid grid-flow-col mb-10">
+            <div className="flex gap-5 mb-10">
               <a className="text-4xl text-blue-500">
                 <FaTwitter></FaTwitter>
               </a>
-              <a>
-                <BsYoutube className="text-4xl text-red-600 "></BsYoutube>
-              </a>
+             
               <a>
                 <FaFacebook className="text-4xl text-blue-600"></FaFacebook>
               </a>
