@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const AddService = () => {
+  const { user } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const image = form.image.value;
+    const price = form.price.value;
+    const title = form.title.value;
+    const area = form.area.value;
+    const description = form.description.value;
+    const serviceData = {
+      image,
+      price,
+      title,
+      area,
+      description,
+      photo: user?.photoURL,
+      name: user?.displayName,
+      email: user?.email,
+    };
+    console.table(serviceData);
   };
   return (
     <div className="my-24 flex items-center justify-center">
@@ -10,12 +29,14 @@ const AddService = () => {
         <form onSubmit={handleSubmit} className="card-body">
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-black">Image URL of the Service </span>
+              <span className="label-text text-black">
+                Image URL of the Service
+              </span>
             </label>
             <input
               type="url"
               placeholder="Image URL"
-              name="photo"
+              name="image"
               className="input input-bordered bg-white"
               required
             />
@@ -27,7 +48,7 @@ const AddService = () => {
             <input
               type="text"
               placeholder="Service Name"
-              name="name"
+              name="title"
               className="input input-bordered bg-white"
               required
             />
@@ -58,7 +79,7 @@ const AddService = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-black">Service Area</span>
+              <span className="label-text text-black">Description</span>
             </label>
             <textarea
               placeholder="Description"
@@ -68,7 +89,9 @@ const AddService = () => {
           </div>
 
           <div className="form-control mt-6">
-            <button className="btn btn-primary text-white bg-[#683edd]">Add</button>
+            <button className="btn btn-primary text-white bg-[#683edd]">
+              Add
+            </button>
           </div>
         </form>
       </div>
