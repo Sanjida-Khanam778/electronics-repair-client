@@ -47,7 +47,10 @@ const Login = () => {
             Welcome Back! Log In to Continue
           </h2>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mb-6">
-            <form onSubmit={handleSubmit(handleForm)} className="card-body pb-2">
+            <form
+              onSubmit={handleSubmit(handleForm)}
+              className="card-body pb-2"
+            >
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -80,17 +83,20 @@ const Login = () => {
               </div>
               <div className="form-control mt-4">
                 <button className="btn btn-primary">Login</button>
-                
               </div>
-              
             </form>
-            <button onClick={handleSocialLogin} className="btn btn-primary w-10/12 mx-auto">
-                  Login with Google <FcGoogle className="text-2xl"></FcGoogle>
-                </button>
-                <p className="mb-6 text-center">
-                Don't have an account? Please
-                <Link to={"/register"} className="text-blue-500 ml-1 font-medium">Register</Link>
-              </p>
+            <button
+              onClick={handleSocialLogin}
+              className="btn btn-primary w-10/12 mx-auto"
+            >
+              Login with Google <FcGoogle className="text-2xl"></FcGoogle>
+            </button>
+            <p className="mb-6 text-center">
+              Don't have an account? Please
+              <Link to={"/register"} className="text-blue-500 ml-1 font-medium">
+                Register
+              </Link>
+            </p>
           </div>
         </div>
       </div>

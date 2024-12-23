@@ -95,17 +95,15 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                {" "}
                 <NavLink
                   onClick={closeDropdown}
                   className="py-2 px-4 hover:bg-slate-200 hover:rounded-lg"
-                  to={"/manage-service"}
+                  to={`/manage-service/${user?.email}`}
                 >
                   Manage Service
                 </NavLink>
               </li>
               <li>
-                {" "}
                 <NavLink
                   onClick={closeDropdown}
                   className="py-2 px-4 hover:bg-slate-200 hover:rounded-lg"
@@ -115,7 +113,6 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                {" "}
                 <NavLink
                   onClick={closeDropdown}
                   className="py-2 px-4 hover:bg-slate-200 hover:rounded-lg"

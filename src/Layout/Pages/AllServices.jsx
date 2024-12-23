@@ -13,7 +13,7 @@ const AllServices = () => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/allServices`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setServices(res.data);
       })
       .catch((err) => console.error("Error fetching services:", err));

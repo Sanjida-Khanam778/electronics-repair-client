@@ -31,11 +31,13 @@ const router = createBrowserRouter([
         },
         {
           path: '/serviceDetails/:id',
-          element: <PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute>
+          element: <PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute>,
+          loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}/service/${params.id}`)
         },
         {
-          path: 'manage-service',
-          element: <ManageService></ManageService>
+          path: 'manage-service/:email',
+          element: <PrivateRoute><ManageService></ManageService></PrivateRoute>,
+          loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}/services/${params.email}`)
         },
         {
           path: 'booked-service',
