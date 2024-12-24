@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 export const axiosSecure = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: 'https://electronics-repair-9c5bf.web.app',
   withCredentials: true,
 });
 
