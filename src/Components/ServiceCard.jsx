@@ -20,7 +20,7 @@ const ServiceCard = ({ service }) => {
       {/* Right Column: Content */}
       <div className="md:w-2/3 w-full md:pl-6 flex flex-col">
         {/* Service Title */}
-        <h2 className="text-2xl font-semibold text-[#683edd] mb-3">
+        <h2 className="text-2xl font-semibold text-yellow-400 mb-3">
           {title}
         </h2>
         
@@ -34,7 +34,7 @@ const ServiceCard = ({ service }) => {
           <div className="flex items-center gap-3">
             {photo ? (
               <img
-                className="h-10 w-10 rounded-full border-2 border-[#683edd]"
+                className="h-10 w-10 rounded-full border-2 border-yellow-400"
                 src={photo}
                 alt={name}
               />
@@ -45,7 +45,7 @@ const ServiceCard = ({ service }) => {
               {name}
             </p>
           </div>
-          <div className="flex items-center gap-2 text-lg text-[#683edd] font-bold">
+          <div className="flex items-center gap-2 text-lg text-yellow-400 font-bold">
             <MdOutlinePriceChange className="text-2xl" />
             ${price}
           </div>
@@ -53,7 +53,7 @@ const ServiceCard = ({ service }) => {
 
         {/* View Details Button */}
         <Link to={`/serviceDetails/${_id}`}>
-          <button className="btn w-full py-2 bg-[#683edd] hover:bg-[#3e0cc9] text-white font-semibold rounded-lg transition">
+          <button className="btn w-full py-2 bg-yellow-400 hover:bg-[#3e0cc9] text-white font-semibold rounded-lg transition">
             View Details
           </button>
         </Link>

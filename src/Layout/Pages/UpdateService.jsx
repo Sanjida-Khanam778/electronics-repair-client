@@ -126,7 +126,7 @@ const UpdateService = () => {
         </div>
 
         <div className="form-control mt-6">
-          <button className="btn btn-primary text-white bg-[#683edd]">
+          <button className="btn btn-primary text-white bg-yellow-400">
             Update
           </button>
         </div>

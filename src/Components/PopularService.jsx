@@ -28,7 +28,7 @@ const PopularService = () => {
       </div>
       <div className=" mx-auto w-10/12 mt-5">
         <Link className="" to={`/allServices`}>
-          <button className="btn mt-6 px-2 w-full md:px-4 bg-[#683edd] hover:bg-[#3e0cc9] text-white border-none">
+          <button className="btn mt-6 px-2 w-full md:px-4 bg-yellow-400 hover:bg-[#3e0cc9] text-white border-none">
             All Services
           </button>
         </Link>

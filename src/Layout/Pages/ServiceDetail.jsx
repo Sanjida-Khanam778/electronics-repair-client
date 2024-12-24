@@ -87,7 +87,7 @@ const ServiceDetail = () => {
               <strong>Description:</strong> {description}
             </p>
             <p className="text-gray-600 dark:text-gray-300 flex items-center gap-2">
-              <FaDollarSign className="text-[#683edd]" />
+              <FaDollarSign className="text-yellow-400" />
               <strong>Price:</strong> ${price}
             </p>
           </div>
@@ -98,7 +98,7 @@ const ServiceDetail = () => {
       <div className="text-center flex items-center justify-center">
         <button
           onClick={() => document.getElementById("my_modal_3").showModal()}
-          className="btn px-6 py-2 bg-[#683edd] hover:bg-[#3e0cc9] text-white rounded-lg transition flex items-center gap-2"
+          className="btn px-6 py-2 bg-yellow-400 hover:bg-[#3e0cc9] text-white rounded-lg transition flex items-center gap-2"
         >
           <MdDateRange />
           Book Now
@@ -248,7 +248,7 @@ const ServiceDetail = () => {
             </div>
             <div className="flex">
               <div className="form-control w-full mt-6">
-                <button className="btn w-full btn-primary text-white bg-[#683edd]">
+                <button className="btn w-full btn-primary text-white bg-yellow-400">
                   Purchase
                 </button>
               </div>

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-// import "./Navbar.css";
+import "./Navbar.css";
 import logo from "../assets/logo.png";
 import { AuthContext } from "../Provider/AuthProvider";
 import { BiMoon, BiSun } from "react-icons/bi";
@@ -106,26 +106,23 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content text-black bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
           </div>
-          <img className="h-5 md:h-10 mr-2 md:mr-4" src={logo} alt="" />
+          <img className="h-5 md:h-9 mr-2 md:mr-4" src={logo} alt="" />
           <Link
-            to={"/"}
-            className="font-bold font-logoFont text-xl md:text-2xl xl:text-4xl text-[#683edd]"
+            className="font-bold font-logoFont text-red-700 text-xl md:text-2xl xl:text-4xl "
           >
-            ElectroCare
+            Electro<span className="text-yellow-400">Care</span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul
-            className={`flex gap-5 items-center px-1 text-[#683edd] font-bold`}
+            className={`flex gap-5 items-center px-1 font-bold`}
           >
             {links}
-          
-     
           </ul>
         </div>
         <div className="navbar-end">
@@ -150,7 +147,7 @@ const Navbar = () => {
                 </div>
               </div>
               <Link onClick={handleSignOut}>
-                <button className="btn bg-[#683edd] hover:bg-[#3e0cc9] text-white border-none">
+                <button className="btn bg-red-600 hover:bg-red-700 text-white border-none">
                   Logout
                 </button>
               </Link>
@@ -158,12 +155,12 @@ const Navbar = () => {
           ) : (
             <>
               <Link className=" mr-3" to={"/login"}>
-                <button className="btn bg-[#683edd] px-2 md:px-4 hover:bg-[#3e0cc9] text-white border-none">
+                <button className="btn bg-red-600 px-2 md:px-4 hover:bg-red-700 text-white border-none">
                   Login
                 </button>
               </Link>
               <Link className="" to={"/register"}>
-                <button className="btn px-2 md:px-4 bg-[#683edd] hover:bg-[#3e0cc9] text-white border-none">
+                <button className="btn px-2 md:px-4 bg-red-600 hover:bg-red-700 text-white border-none">
                   Register
                 </button>
               </Link>
