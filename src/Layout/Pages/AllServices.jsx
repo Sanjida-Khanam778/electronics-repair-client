@@ -4,7 +4,10 @@ import AllServicesCard from "../../Components/AllServicesCard";
 
 const AllServices = () => {
   const [services, setServices] = useState([]);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   useEffect(() => {
     fetchServiceData();
   }, []);

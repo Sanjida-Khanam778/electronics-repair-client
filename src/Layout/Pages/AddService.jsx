@@ -38,8 +38,8 @@ const AddService = () => {
     }
   };
   return (
-    <div className="my-24 flex items-center justify-center">
-      <div className="w-1/4 bg-slate-100 rounded-2xl">
+    <div className="my-10 md:my-24 flex items-center justify-center">
+      <div className="w-11/12 md:w-1/4 bg-slate-100 rounded-2xl">
         <form onSubmit={handleSubmit} className="card-body">
           <div className="form-control">
             <label className="label">

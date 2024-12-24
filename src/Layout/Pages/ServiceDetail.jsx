@@ -1,15 +1,16 @@
 import React, { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { MdEmail, MdPerson, MdLocationOn, MdDateRange } from "react-icons/md";
-import { FaDollarSign, FaFileAlt } from "react-icons/fa";
+import { MdPerson, MdLocationOn, MdDateRange } from "react-icons/md";
+import { FaDollarSign } from "react-icons/fa";
 import { FcServices } from "react-icons/fc";
 
 const ServiceDetail = () => {
+  const navigate = useNavigate()
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
   const serviceData = useLoaderData();
@@ -38,8 +39,10 @@ const ServiceDetail = () => {
         `${import.meta.env.VITE_API_URL}/bookedService`,
         bookedData
       );
-      form.reset();
+      console.log(data)
+      // form.reset();
       toast.success("Service Booked Successfully");
+      navigate('/booked-service')
     } catch (err) {
       toast.error(err.message);
     }

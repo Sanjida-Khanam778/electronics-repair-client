@@ -26,57 +26,9 @@ const Navbar = () => {
         <NavLink to={"/allServices"}>Services</NavLink>
       </li>
 
-     
-    </>
-  );
-  return (
-    <div className={`w-11/12 xl:w-10/12 mx-auto `}>
-      <div className="navbar px-0">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost lg:hidden px-0 pr-2"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-            >
-              {links}
-            </ul>
-          </div>
-          <img className="h-5 md:h-10 mr-2 md:mr-4" src={logo} alt="" />
-          <Link
-            to={"/"}
-            className="font-bold font-logoFont text-xl md:text-2xl xl:text-4xl text-[#683edd]"
-          >
-            ElectroCare
-          </Link>
-        </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul
-            className={`flex gap-5 items-center px-1 text-[#683edd] font-bold`}
-          >
-            {links}
-            {user && (
+      {user && (
         <div className="dropdown z-50">
-          <div tabIndex={0} role="button" onClick={toggleDropdown}>
+          <div tabIndex={0} role="button" className="ml-3" onClick={toggleDropdown}>
             Dashboard
           </div>
 
@@ -125,6 +77,54 @@ const Navbar = () => {
           )}
         </div>
       )}
+    </>
+  );
+  return (
+    <div className={`w-11/12 xl:w-10/12 mx-auto `}>
+      <div className="navbar px-0">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost lg:hidden px-0 pr-2"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            >
+              {links}
+            </ul>
+          </div>
+          <img className="h-5 md:h-10 mr-2 md:mr-4" src={logo} alt="" />
+          <Link
+            to={"/"}
+            className="font-bold font-logoFont text-xl md:text-2xl xl:text-4xl text-[#683edd]"
+          >
+            ElectroCare
+          </Link>
+        </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul
+            className={`flex gap-5 items-center px-1 text-[#683edd] font-bold`}
+          >
+            {links}
+          
      
           </ul>
         </div>
