@@ -20,13 +20,13 @@ const ServiceCard = ({ service }) => {
       {/* Right Column: Content */}
       <div className="md:w-2/3 w-full md:pl-6 flex flex-col">
         {/* Service Title */}
-        <h2 className="text-2xl font-semibold text-yellow-400 mb-3">
-          {title}
-        </h2>
-        
+        <h2 className="text-2xl font-semibold  mb-3">{title}</h2>
+
         {/* Description */}
         <p className="text-gray-600 dark:text-gray-300 mb-4">
-          {description.length > 99 ? description.substring(0, 99) + "..." : description}
+          {description.length > 99
+            ? description.substring(0, 99) + "..."
+            : description}
         </p>
 
         {/* Provider Info */}
@@ -34,7 +34,7 @@ const ServiceCard = ({ service }) => {
           <div className="flex items-center gap-3">
             {photo ? (
               <img
-                className="h-10 w-10 rounded-full border-2 border-yellow-400"
+                className="h-10 w-10 rounded-full border-2 border-red-600"
                 src={photo}
                 alt={name}
               />
@@ -45,18 +45,19 @@ const ServiceCard = ({ service }) => {
               {name}
             </p>
           </div>
-          <div className="flex items-center gap-2 text-lg text-yellow-400 font-bold">
-            <MdOutlinePriceChange className="text-2xl" />
-            ${price}
-          </div>
         </div>
 
         {/* View Details Button */}
-        <Link to={`/serviceDetails/${_id}`}>
-          <button className="btn w-full py-2 bg-yellow-400 hover:bg-[#3e0cc9] text-white font-semibold rounded-lg transition">
-            View Details
-          </button>
-        </Link>
+        <div className="flex justify-between">
+          <Link to={`/serviceDetails/${_id}`}>
+            <button className="btn  py-2 border-2 border-red-600 bg-white hover:bg-red-600 hover:text-white font-semibold rounded-lg transition">
+              View Details
+            </button>
+          </Link>
+          <div className="flex items-center gap-2 text-lg  font-bold">
+            <MdOutlinePriceChange className="text-2xl" />${price}
+          </div>
+        </div>
       </div>
     </div>
   );
