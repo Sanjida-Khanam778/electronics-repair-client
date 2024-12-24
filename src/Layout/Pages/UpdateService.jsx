@@ -47,7 +47,7 @@ const UpdateService = () => {
       );
       console.log(data);
       form.reset();
-      toast.success("Service Added SuccessFully");
+      toast.success("Service Updated SuccessFully");
       navigate(`/manage-service/${user?.email}`);
     } catch (err) {
       console.log(err);

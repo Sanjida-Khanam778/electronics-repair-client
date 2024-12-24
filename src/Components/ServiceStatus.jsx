@@ -2,9 +2,12 @@ import axios from "axios";
 import { format } from "date-fns";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import useAxiosSecure from "./hooks/useAxiosSecure";
 
 const ServiceStatus = ({ service }) => {
   const { status, _id } = service || {};
+  const axiosSecures = useAxiosSecure();
+
   // console.log("Prev", status);
   const [currentStatus, setCurrentStatus] = useState(status || "Pending");
   const handleStatusChange = async(e) => {
@@ -12,8 +15,8 @@ const ServiceStatus = ({ service }) => {
     setCurrentStatus(newStatus);
     // console.log("New", newStatus, _id);
     try {
-      const {data} = await axios.put(
-        `${import.meta.env.VITE_API_URL}/bookedService/${_id}`,
+      const {data} = await axiosSecures.put(
+        `/bookedService/${_id}`,
         { status: newStatus }
       );
       console.log(data)

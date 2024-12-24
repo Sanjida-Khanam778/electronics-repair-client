@@ -1,23 +1,26 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import axios from "axios";
 import ServiceStatus from "../../Components/ServiceStatus";
+import useAxiosSecure from "../../Components/hooks/useAxiosSecure";
 
 const ServiceToDo = () => {
   const [services, setServices] = useState([]);
   const { user } = useContext(AuthContext);
+  const axiosSecures = useAxiosSecure();
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   
+
   useEffect(() => {
     fetchServiceData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.email]);
   const fetchServiceData = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/myServicesToDo/${user?.email}`
+    const { data } = await axiosSecures.get(
+      `/myServicesToDo/${user?.email}`
     );
     setServices(data);
     console.log(data);

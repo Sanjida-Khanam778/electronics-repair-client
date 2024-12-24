@@ -11,7 +11,6 @@ import { signalContext } from "../../Provider/SignalProvider";
 
 const ManageService = () => {
   const {signal, setSignal} = useContext(signalContext)
-  // const myServices = useLoaderData();
   const axiosSecures = useAxiosSecure();
   const [services, setServices] = useState([]);
   const { user } = useContext(AuthContext);

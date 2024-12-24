@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import axios from "axios";
 import { format } from "date-fns";
+import useAxiosSecure from "../../Components/hooks/useAxiosSecure";
 
 const BookedService = () => {
   const [services, setServices] = useState([]);
   const { user } = useContext(AuthContext);
+  const axiosSecures = useAxiosSecure();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -14,11 +16,10 @@ const BookedService = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.email]);
   const fetchServiceData = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/bookedServices/${user?.email}`
+    const { data } = await axiosSecures.get(
+      `/bookedServices/${user?.email}`
     );
     setServices(data);
-    // console.log(data);
   };
   return (
     <div className="w-11/12 md:w-9/12 mx-auto my-10 md:my-20">
