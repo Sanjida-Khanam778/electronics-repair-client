@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import axios from "axios";
 import { toast } from "react-toastify";
+import useAxiosSecure from "../../Components/hooks/useAxiosSecure";
 
 const AddService = () => {
+  const axiosSecures = useAxiosSecure();
+
   const { user } = useContext(AuthContext);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,8 +27,8 @@ const AddService = () => {
     };
     console.table(serviceData);
     try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_API_URL}/addService`,
+      const { data } = await axiosSecures.post(
+        `/addService`,
         serviceData
       );
       console.log(data);

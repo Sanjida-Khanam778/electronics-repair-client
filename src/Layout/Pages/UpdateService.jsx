@@ -3,8 +3,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useAxiosSecure from "../../Components/hooks/useAxiosSecure";
 
 const UpdateService = () => {
+  const axiosSecures = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const { id } = useParams();
   const navigate = useNavigate();
@@ -16,8 +18,8 @@ const UpdateService = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
   const fetchServiceData = async () => {
-    const { data } = await axios.get(
-      `${import.meta.env.VITE_API_URL}/service/${id}`
+    const { data } = await axiosSecures.get(
+      `/service/${id}`
     );
     setService(data);
   };
@@ -39,7 +41,7 @@ const UpdateService = () => {
     };
     console.table(serviceData, id);
     try {
-      const { data } = await axios.patch(
+      const { data } = await axiosSecures.patch(
         `${import.meta.env.VITE_API_URL}/updateService/${id}`,
         serviceData
       );

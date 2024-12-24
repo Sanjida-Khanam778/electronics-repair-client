@@ -8,8 +8,11 @@ import { toast } from "react-toastify";
 import { MdPerson, MdLocationOn, MdDateRange } from "react-icons/md";
 import { FaDollarSign } from "react-icons/fa";
 import { FcServices } from "react-icons/fc";
+import useAxiosSecure from "../../Components/hooks/useAxiosSecure";
 
 const ServiceDetail = () => {
+  const axiosSecures = useAxiosSecure();
+
   const navigate = useNavigate()
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
@@ -35,8 +38,8 @@ const ServiceDetail = () => {
     };
 
     try {
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_API_URL}/bookedService`,
+      const { data } = await axiosSecures.post(
+        `/bookedService`,
         bookedData
       );
       console.log(data)

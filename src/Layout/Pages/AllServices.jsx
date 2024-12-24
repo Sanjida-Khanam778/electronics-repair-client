@@ -5,6 +5,7 @@ import AllServicesCard from "../../Components/AllServicesCard";
 const AllServices = () => {
   const [services, setServices] = useState([]);
   const [search, setSearch] = useState("");
+  console.log(search)
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -30,7 +31,7 @@ const AllServices = () => {
         All Services ({services.length})
       </h2>
       <label className="input input-bordered flex items-center gap-2">
-        <input type="text" name="search" className="grow" placeholder="Search" />
+        <input type="text" onChange={e=>setSearch(e.target.value)} name="search" className="grow" placeholder="Search" />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
