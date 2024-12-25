@@ -11,7 +11,7 @@ const Footer = () => {
       <footer
         className={` flex flex-col justify-end rounded p-5 lg:p-20 lg:pb-10 ${
           theme === "dark"
-            ? "text-yellow-400 bg-opacity-95 bg-base-300"
+            ? "text-white bg-opacity-95 bg-base-300"
             : "text-black bg-gray-200"
         }`}
       >
@@ -23,13 +23,21 @@ const Footer = () => {
             <Link className="font-bold font-logoFont text-red-700 border-2 text-center md:text-start text-3xl xl:text-4xl">
               Electro<span className="text-yellow-400">Care</span>
             </Link>
-            <p className="pt-4 font-bold text-black w-10/12 md:w-full mx-auto text-center md:text-start">
+            <p className={`pt-4 font-bold text-opacity-60 text-black w-10/12 md:w-full mx-auto text-center md:text-start ${
+          theme === "dark"
+            ? "text-white "
+            : "text-black "
+        }`}>
               Your ultimate destination for exploring, discovering, and
               celebrating the magic of movies.
             </p>
           </div>
           <div className="flex flex-col justify-end">
-            <h6 className="mb-4 text-xl font-bold text-black">Explore</h6>
+            <h6 className={`mb-4 text-xl font-bold ${
+          theme === "dark"
+            ? "text-white "
+            : "text-black "
+        }`}>Explore</h6>
             <a className="link link-hover">Services</a>
             <a className="link link-hover">Manage Booking</a>
             <a className="link link-hover">Book a Service</a>
@@ -60,7 +68,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="border-t w-full p-5 flex justify-center ">
+        <div className="border-t w-full p-4 flex justify-center ">
           <p className="text-center">
             Copyright © {new Date().getFullYear()} - All right reserved
           </p>

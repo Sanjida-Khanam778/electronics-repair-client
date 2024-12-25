@@ -35,23 +35,23 @@ const AllServicesCard = ({ service }) => {
             alt={name}
           />
           <p className="flex items-center text-gray-700 text-sm md:text-base">
-            <FaUser className="mr-2 text-yellow-400" /> {name}
+            <FaUser className="mr-2 " /> {name}
           </p>
         </div>
 
         {/* Pricing and Location */}
         <div className="flex justify-between text-sm md:text-base text-gray-700 mb-4 flex-grow">
           <p className="flex items-center">
-            <FaDollarSign className="mr-2 text-yellow-400" /> ${price}
+            <FaDollarSign className="mr-2 " />Price: ${price}
           </p>
           <p className="flex items-center">
-            <FaMapMarkerAlt className="mr-2 text-yellow-400" /> {area}
+            <FaMapMarkerAlt className="mr-2 " />Area: {area}
           </p>
         </div>
 
         {/* View Details Button */}
         <Link to={`/serviceDetails/${_id}`}>
-          <button className="btn w-full mt-2 px-2 md:px-4 bg-yellow-400 hover:bg-[#3e0cc9] text-white border-none rounded-lg">
+          <button className="btn w-full mt-2 px-2 md:px-4 bg-red-600 hover:bg-red-700 text-white border-none rounded-lg">
             View Details
           </button>
         </Link>

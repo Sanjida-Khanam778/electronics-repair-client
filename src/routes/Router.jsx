@@ -52,7 +52,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'updateService/:id',
-        element: <UpdateService></UpdateService>
+        element: <PrivateRoute><UpdateService></UpdateService></PrivateRoute>
       },
       {
         path: "booked-service",

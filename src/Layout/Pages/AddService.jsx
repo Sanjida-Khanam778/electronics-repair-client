@@ -27,20 +27,26 @@ const AddService = () => {
     };
     console.table(serviceData);
     try {
-      const { data } = await axiosSecures.post(
-        `/addService`,
-        serviceData
-      );
+      const { data } = await axiosSecures.post(`/addService`, serviceData);
       console.log(data);
-      form.reset()
-      toast.success('Service Added SuccessFully')
+      form.reset();
+      toast.success("Service Added SuccessFully");
     } catch (err) {
       console.log(err);
-      toast.error(err.message)
+      toast.error(err.message);
     }
   };
   return (
-    <div className="my-10 md:my-24 flex items-center justify-center">
+    <div className="my-10 md:my-24 flex-col flex items-center justify-center">
+      <div className="flex flex-col justify-center items-center w-10/12 mx-auto">
+        <h2 className="text-2xl lg:text-5xl font-medium text-center">
+          Add a New Service
+        </h2>
+        <p className="text-gray-600 font-medium mb-4 md:mb-10 mt-1 text-center">
+          Fill out the form below to add a new service to your offerings. Make
+          sure to provide all the necessary details to attract customers.{" "}
+        </p>
+      </div>
       <div className="w-11/12 md:w-1/4 bg-slate-100 rounded-2xl">
         <form onSubmit={handleSubmit} className="card-body">
           <div className="form-control">
@@ -105,7 +111,7 @@ const AddService = () => {
           </div>
 
           <div className="form-control mt-6">
-            <button className="btn btn-primary text-white bg-yellow-400">
+            <button className="btn hover:bg-red-700 text-white bg-red-600">
               Add
             </button>
           </div>

@@ -53,7 +53,7 @@ const ServiceStatus = ({ service }) => {
           </div>
         </div>
       </td>
-      <td>
+      <td className="font-bold">
         ${service?.price}
         <br />
       </td>

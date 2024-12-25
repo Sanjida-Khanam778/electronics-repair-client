@@ -27,10 +27,10 @@ const AllServices = () => {
   return (
     <div className="max-w-screen-xl mx-auto px-4 py-8">
       {/* Page Header */}
-      <h2 className="text-3xl font-bold text-center text-yellow-400 mb-6">
+      <h2 className="text-3xl font-bold text-center mb-6">
         All Services ({services.length})
-      </h2>
-      <label className="input input-bordered flex items-center gap-2">
+      </h2> 
+      <label className="input input-bordered flex items-center gap-2 w-2/3 md:w-1/3 mx-auto mb-4 md:mb-10">
         <input type="text" onChange={e=>setSearch(e.target.value)} name="search" className="grow" placeholder="Search" />
         <svg
           xmlns="http://www.w3.org/2000/svg"

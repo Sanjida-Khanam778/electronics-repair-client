@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { format } from "date-fns";
 import useAxiosSecure from "../../Components/hooks/useAxiosSecure";
+import { VscEmptyWindow } from "react-icons/vsc";
 
 const BookedService = () => {
   const [services, setServices] = useState([]);
@@ -30,7 +31,7 @@ const BookedService = () => {
           className="text-gray-600 font-medium mb-4 md:mb-10 mt-1 text-center"
         
         >
-         Track the status of your booking services, update status, and ensure timely completion with ease
+         Track the status of all the services you’ve booked or purchased in one place. Stay updated on progress and details.
         </p>
       </div>
       <div className="overflow-x-auto">
@@ -47,7 +48,7 @@ const BookedService = () => {
             </tr>
           </thead>
           <tbody>
-            {services.map((service) => (
+            {services && services.length > 0 ?(services.map((service) => (
               <tr key={service._id}>
                 <td>
                   <div className="flex items-center gap-3">
@@ -77,21 +78,29 @@ const BookedService = () => {
                     </div>
                   </div>
                 </td>
-                <td>
+                <td className="font-bold">
                   ${service?.price}
                   <br />
                 </td>
                 <td>{format(new Date(service?.date), "P")}</td>
                 <td>{service?.instruction.substring(0, 20)}...</td>
                 <td
-                  className={`${
-                    service?.status === "Pending" && "text-red-600"
-                  }`}
+                  className={`${service?.status === "Pending" && "text-red-600"} ${
+                    service?.status === "Working" && "text-yellow-500"
+                  } ${service?.status === "Completed" && "text-green-600"}`}
                 >
                   {service?.status}
                 </td>
               </tr>
-            ))}
+            ))):(
+                          <tr>
+                            <td colSpan="6" className="text-center text-gray-500 p-10">
+                              <h2 className="text-4xl font-bold text-red-500 flex justify-center gap-6">
+                                <VscEmptyWindow></VscEmptyWindow>No Service to Show
+                              </h2>
+                            </td>
+                          </tr>
+                        )}
           </tbody>
         </table>
       </div>
