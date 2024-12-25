@@ -2,17 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import ServiceStatus from "../../Components/ServiceStatus";
 import useAxiosSecure from "../../Components/hooks/useAxiosSecure";
+import { ScrollRestoration } from "react-router-dom";
 
 const ServiceToDo = () => {
   const [services, setServices] = useState([]);
   const { user } = useContext(AuthContext);
   const axiosSecures = useAxiosSecure();
-
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  
 
   useEffect(() => {
     fetchServiceData();
@@ -27,6 +22,7 @@ const ServiceToDo = () => {
   };
   return (
     <div>
+      <ScrollRestoration></ScrollRestoration>
       <table className="table">
         {/* head */}
         <thead>

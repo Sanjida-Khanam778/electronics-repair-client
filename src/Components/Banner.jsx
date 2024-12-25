@@ -1,7 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import bgimg1 from "../assets/images/slider1.webp";
+import bgimg1 from "../assets/images/slider1.jpg";
 import bgimg2 from "../assets/images/slider2.jpeg";
 import bgimg3 from "../assets/images/slider3.jpg";
 import 'swiper/css'

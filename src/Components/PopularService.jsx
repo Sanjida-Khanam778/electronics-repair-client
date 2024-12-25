@@ -2,8 +2,16 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
 import { Link } from "react-router-dom";
-
+import "aos/dist/aos.css";
+import AOS from "aos";
 const PopularService = () => {
+  React.useEffect(() => {
+      AOS.init({
+        duration: 1000, 
+        once: false,   
+      });
+      AOS.refresh(); 
+    }, []);
   const [services, setServices] = useState([]);
   useEffect(() => {
     fetchServiceData();
@@ -21,7 +29,7 @@ const PopularService = () => {
           Popular Services
         </h2>
       </div>
-      <div className="grid grid-cols-2 gap-5 md:w-10/12 w-full mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:w-10/12 w-full mx-auto">
         {services.map((service) => (
           <ServiceCard key={service._id} service={service}></ServiceCard>
         ))}
@@ -31,7 +39,7 @@ const PopularService = () => {
         className=" mx-auto w-10/12 mt-5"
       >
         <Link className="" to={`/allServices`}>
-          <button className="btn mt-6 px-2 w-full md:px-4 bg-yellow-400 hover:bg-[#3e0cc9] text-white border-none">
+          <button data-aos="zoom-in" data-aos-duration="1000" className="btn mt-6 px-2 w-full md:px-4 bg-red-600 hover:bg-red-700 text-white border-none">
             All Services
           </button>
         </Link>

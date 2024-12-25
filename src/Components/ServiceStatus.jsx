@@ -1,4 +1,3 @@
-import axios from "axios";
 import { format } from "date-fns";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
@@ -8,12 +7,10 @@ const ServiceStatus = ({ service }) => {
   const { status, _id } = service || {};
   const axiosSecures = useAxiosSecure();
 
-  // console.log("Prev", status);
   const [currentStatus, setCurrentStatus] = useState(status || "Pending");
   const handleStatusChange = async(e) => {
     const newStatus = e.target.value;
     setCurrentStatus(newStatus);
-    // console.log("New", newStatus, _id);
     try {
       const {data} = await axiosSecures.put(
         `/bookedService/${_id}`,
