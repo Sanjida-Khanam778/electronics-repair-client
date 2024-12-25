@@ -25,11 +25,11 @@ const PopularService = () => {
   return (
     <div className="my-10 md:my-24">
       <div className="mb-4 md:mb-10">
-        <h2 className="text-center font-body font-bold text-2xl md:text-5xl">
+        <h2 data-aos="fade-right" className="text-center font-body font-bold text-2xl md:text-5xl">
           Popular Services
         </h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:w-10/12 w-full mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:w-11/12 w-full mx-auto">
         {services.map((service) => (
           <ServiceCard key={service._id} service={service}></ServiceCard>
         ))}
