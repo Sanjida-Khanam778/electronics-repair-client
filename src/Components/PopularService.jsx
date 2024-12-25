@@ -15,18 +15,21 @@ const PopularService = () => {
     });
   };
   return (
-    <div className="my-24">
-      <div className="mb-10">
-        <h2 className="text-center font-body font-bold text-5xl">
+    <div className="my-10 md:my-24">
+      <div className="mb-4 md:mb-10">
+        <h2 className="text-center font-body font-bold text-2xl md:text-5xl">
           Popular Services
         </h2>
       </div>
-      <div className="grid grid-cols-2 gap-5 w-10/12 mx-auto">
+      <div className="grid grid-cols-2 gap-5 md:w-10/12 w-full mx-auto">
         {services.map((service) => (
           <ServiceCard key={service._id} service={service}></ServiceCard>
         ))}
       </div>
-      <div className=" mx-auto w-10/12 mt-5">
+      <div
+        
+        className=" mx-auto w-10/12 mt-5"
+      >
         <Link className="" to={`/allServices`}>
           <button className="btn mt-6 px-2 w-full md:px-4 bg-yellow-400 hover:bg-[#3e0cc9] text-white border-none">
             All Services
