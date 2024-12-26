@@ -20,7 +20,7 @@ const Footer = () => {
             <div className="flex justify-center md:justify-start">
               <img className="mt-10 md:mt-0 mb-2" src={logoFooter} alt="" />
             </div>
-            <Link className="font-bold font-logoFont text-red-700 border-2 text-center md:text-start text-3xl xl:text-4xl">
+            <Link className="font-bold font-logoFont text-red-700 text-center md:text-start text-3xl xl:text-4xl">
               Electro<span className="text-yellow-400">Care</span>
             </Link>
             <p className={`pt-4 font-bold text-opacity-60 text-black w-10/12 md:w-full mx-auto text-center md:text-start ${
