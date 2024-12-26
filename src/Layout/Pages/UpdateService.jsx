@@ -59,7 +59,7 @@ const UpdateService = () => {
       <h2 className="text-3xl text-center mb-4 md:mb-10">Update Form</h2>
       <form
         onSubmit={handleSubmit}
-        className="card-body w-11/12 bg-slate-100 md:w-1/3 mx-auto"
+        className="card-body w-10/12 bg-slate-100 md:w-1/2 lg:w-1/3 mx-auto"
       >
         <div className="form-control">
           <label className="label">

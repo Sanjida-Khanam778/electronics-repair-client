@@ -47,7 +47,7 @@ const AddService = () => {
           sure to provide all the necessary details to attract customers.{" "}
         </p>
       </div>
-      <div className="w-11/12 md:w-1/4 bg-slate-100 rounded-2xl">
+      <div className="w-11/12 md:w-1/2 lg:w-1/4 bg-slate-100 rounded-2xl">
         <form onSubmit={handleSubmit} className="card-body">
           <div className="form-control">
             <label className="label">
