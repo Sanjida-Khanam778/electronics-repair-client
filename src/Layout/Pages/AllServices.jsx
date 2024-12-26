@@ -18,7 +18,6 @@ const AllServices = () => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/allServices?search=${search}`)
       .then((res) => {
-        // console.log(res.data);
         setServices(res.data);
       })
       .catch((err) => console.error("Error fetching services:", err));
@@ -26,7 +25,6 @@ const AllServices = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto px-4 py-8">
-      {/* Page Header */}
       <h2 className="text-3xl font-bold text-center mb-6">
         All Services ({services.length})
       </h2> 
@@ -46,7 +44,6 @@ const AllServices = () => {
         </svg>
       </label>
 
-      {/* Services Grid */}
       <div className="grid grid-cols-1 gap-8">
         {services.map((service) => (
           <AllServicesCard key={service._id} service={service} />

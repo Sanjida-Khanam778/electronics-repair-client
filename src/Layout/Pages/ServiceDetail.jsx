@@ -3,7 +3,6 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { MdPerson, MdLocationOn, MdDateRange } from "react-icons/md";
 import { FaDollarSign } from "react-icons/fa";
@@ -18,7 +17,6 @@ const ServiceDetail = () => {
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
   const {data: serviceData} = useLoaderData();
-  // console.log(serviceData.data)
   const { _id, name, photo, email, area, image, title, description, price } =
     serviceData || {};
 
@@ -46,7 +44,6 @@ const ServiceDetail = () => {
         bookedData
       );
       console.log(data)
-      // form.reset();
       toast.success("Service Booked Successfully");
       navigate('/booked-service')
     } catch (err) {
@@ -64,7 +61,6 @@ const ServiceDetail = () => {
         Service Details
       </h2>
 
-      {/* Service Information */}
       <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 mb-8">
         <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
           Service Information
@@ -104,7 +100,6 @@ const ServiceDetail = () => {
         </div>
       </div>
 
-      {/* Book Now Button */}
       <div className="text-center flex items-center justify-center">
         <button
           onClick={() => document.getElementById("my_modal_3").showModal()}
@@ -115,7 +110,6 @@ const ServiceDetail = () => {
         </button>
       </div>
 
-      {/* Modal */}
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box max-w-[530px]">
           <h2 className="text-4xl text-center mb-6">Form</h2>

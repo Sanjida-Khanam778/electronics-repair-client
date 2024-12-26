@@ -42,13 +42,11 @@ const ManageService = () => {
                 text: "Your Service has been deleted.",
                 icon: "success",
               });
-              // fetchServiceData();
               setSignal(Math.random());
               console.log(res.data);
             }
           });
         });
-      // console.log(data)
     } catch (err) {
       console.log(err.message);
       toast.error(err.message);
@@ -67,7 +65,6 @@ const ManageService = () => {
       </div>
       <div className="overflow-x-auto w-11/12 md:w-9/12 mx-auto">
         <table className="table">
-          {/* head */}
           <thead>
             <tr className="text-xl">
               <th>Service Name</th>

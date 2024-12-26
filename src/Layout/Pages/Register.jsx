@@ -39,7 +39,6 @@ const Register = () => {
           })
           .catch((err) => toast.error(err.message));
       })
-      // navigate("/");
 
       .catch((err) => {
         toast.error(err.message);

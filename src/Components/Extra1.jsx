@@ -1,6 +1,5 @@
 import React from "react";
 import { FaTools, FaClock, FaDollarSign, FaShieldAlt } from "react-icons/fa";
-import img1 from "../../src/assets/images/slider2.jpeg";
 import "aos/dist/aos.css";
 import AOS from "aos";
 

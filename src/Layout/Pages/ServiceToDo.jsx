@@ -33,7 +33,6 @@ const ServiceToDo = () => {
       </div>
       <div className="overflow-x-auto mx-auto w-11/12 md:w-10/12">
         <table className="table">
-          {/* head */}
           <thead>
             <tr className="text-xl">
               <th>Service Info</th>

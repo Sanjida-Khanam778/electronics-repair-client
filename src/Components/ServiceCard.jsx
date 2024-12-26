@@ -8,7 +8,6 @@ const ServiceCard = ({ service }) => {
 
   return (
     <div className="flex flex-col md:flex-row items-start border shadow-lg rounded-3xl p-4 lg:p-6 hover:shadow-2xl transition w-full mx-auto bg-white dark:bg-gray-800 dark:text-gray-200">
-      {/* Left Column: Image */}
       <div className="lmd:w-1/3 w-full h-[300px] mb-4 md:mb-0">
         <img
           src={image}
@@ -17,19 +16,15 @@ const ServiceCard = ({ service }) => {
         />
       </div>
 
-      {/* Right Column: Content */}
       <div className="md:w-2/3 w-full md:pl-6 flex flex-col">
-        {/* Service Title */}
         <h2 className="text-xl md:text-2xl font-semibold  mb-3">{title}</h2>
 
-        {/* Description */}
         <p className="text-gray-600 dark:text-gray-300 mb-4">
           {description.length > 99
             ? description.substring(0, 99) + "..."
             : description}
         </p>
 
-        {/* Provider Info */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             {photo ? (
@@ -47,7 +42,6 @@ const ServiceCard = ({ service }) => {
           </div>
         </div>
 
-        {/* View Details Button */}
         <div className="flex justify-between flex-col md:flex-row">
           <Link to={`/serviceDetails/${_id}`}>
             <button className="btn  py-2 border-2 border-red-600 bg-white hover:bg-red-600 hover:text-white font-semibold rounded-lg transition">
