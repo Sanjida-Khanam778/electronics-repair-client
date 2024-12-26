@@ -7,7 +7,6 @@ const AllServicesCard = ({ service }) => {
 
   return (
     <div className="flex flex-col md:flex-row gap-6 border rounded-3xl w-11/12 md:w-2/3 mx-auto p-6 shadow-lg bg-white hover:shadow-2xl transition-all">
-      {/* Image Section */}
       <div className="flex-shrink-0 w-full md:w-1/3">
         <img
           src={image}
@@ -16,7 +15,6 @@ const AllServicesCard = ({ service }) => {
         />
       </div>
 
-      {/* Details Section */}
       <div className="flex flex-col w-full md:w-2/3 p-4">
         <div>
           <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">
@@ -27,7 +25,6 @@ const AllServicesCard = ({ service }) => {
           </p>
         </div>
 
-        {/* Service Provider Info */}
         <div className="flex items-center gap-4 mb-4">
           <img
             className="h-12 w-12 rounded-full border border-gray-300"
@@ -39,7 +36,6 @@ const AllServicesCard = ({ service }) => {
           </p>
         </div>
 
-        {/* Pricing and Location */}
         <div className="flex justify-between text-sm md:text-base text-gray-700 mb-4 flex-grow">
           <p className="flex items-center">
             <FaDollarSign className="mr-2 " />Price: ${price}
@@ -49,7 +45,6 @@ const AllServicesCard = ({ service }) => {
           </p>
         </div>
 
-        {/* View Details Button */}
         <Link to={`/serviceDetails/${_id}`}>
           <button className="btn w-full mt-2 px-2 md:px-4 bg-red-600 hover:bg-red-700 text-white border-none rounded-lg">
             View Details

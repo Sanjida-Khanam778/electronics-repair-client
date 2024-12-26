@@ -9,7 +9,7 @@ const ServiceCard = ({ service }) => {
   return (
     <div className="flex flex-col md:flex-row items-start border shadow-lg rounded-3xl p-4 lg:p-6 hover:shadow-2xl transition w-full mx-auto bg-white dark:bg-gray-800 dark:text-gray-200">
       {/* Left Column: Image */}
-      <div className="lmd:w-1/3 w-full h-full mb-4 md:mb-0">
+      <div className="lmd:w-1/3 w-full h-[300px] mb-4 md:mb-0">
         <img
           src={image}
           className="h-full w-full rounded-3xl object-cover"

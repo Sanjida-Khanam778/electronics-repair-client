@@ -11,16 +11,19 @@ import { FcServices } from "react-icons/fc";
 import useAxiosSecure from "../../Components/hooks/useAxiosSecure";
 
 const ServiceDetail = () => {
+  const {theme} = useContext(AuthContext)
   const axiosSecures = useAxiosSecure();
 
   const navigate = useNavigate()
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
-  const serviceData = useLoaderData();
+  const {data: serviceData} = useLoaderData();
+  // console.log(serviceData.data)
   const { _id, name, photo, email, area, image, title, description, price } =
     serviceData || {};
 
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
     const form = e.target;
     const bookedData = {
@@ -53,7 +56,11 @@ const ServiceDetail = () => {
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
-      <h2 className="text-3xl font-semibold text-center text-gray-800 dark:text-white mb-6">
+      <h2 className={`text-3xl font-semibold text-center text-gray-800 mb-6 ${
+          theme === "dark"
+            ? "text-white bg-opacity-95 bg-base-300"
+            : "text-black bg-gray-200"
+        }`}>
         Service Details
       </h2>
 
@@ -101,7 +108,7 @@ const ServiceDetail = () => {
       <div className="text-center flex items-center justify-center">
         <button
           onClick={() => document.getElementById("my_modal_3").showModal()}
-          className="btn px-6 py-2 bg-yellow-400 hover:bg-[#3e0cc9] text-white rounded-lg transition flex items-center gap-2"
+          className="btn px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition flex items-center gap-2"
         >
           <MdDateRange />
           Book Now
@@ -251,15 +258,13 @@ const ServiceDetail = () => {
             </div>
             <div className="flex">
               <div className="form-control w-full mt-6">
-                <button className="btn w-full btn-primary text-white bg-yellow-400">
+                <button className="btn w-full btn-primary text-white bg-red-600">
                   Purchase
                 </button>
               </div>
             </div>
           </form>
-          <form method="dialog">
-            <button className="btn">Close</button>
-          </form>
+         
         </div>
       </dialog>
     </div>

@@ -18,7 +18,7 @@ const ErrorPage = () => {
         </div>
         <p className="text-4xl my-3 text-gray-800 font-semibold">Page Not Found !!!</p>
         <button
-          className="btn  mt-8 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition-all"
+          className="btn  mt-8 text-white px-6 py-2 rounded-lg bg-red-500 hover:bg-red-600 transition-all"
           onClick={handleBack}
         >
           Back to HomePage

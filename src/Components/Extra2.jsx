@@ -24,7 +24,7 @@ const Extra2 = () => {
           Have questions about our services? Find answers to the most common inquiries below. If you need further assistance, feel free to contact us!
         </p>
       </div>
-      <div className="flex flex-col gap-6 md:flex-row justify-center items-center">
+      <div className="flex flex-col gap-6 lg:flex-row justify-center items-center">
         <div>
             <img src={faq} alt="" />
         </div>

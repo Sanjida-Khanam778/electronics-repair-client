@@ -38,10 +38,26 @@ const Footer = () => {
             ? "text-white "
             : "text-black "
         }`}>Explore</h6>
-            <a className="">Services</a>
-            <a className="">Manage Booking</a>
-            <a className="">Book a Service</a>
-            <a className="">Services-To-Do</a>
+            <a className={`text-opacity-60 font-bold ${
+          theme === "dark"
+            ? "text-white "
+            : "text-black "
+        }`}>Services</a>
+            <a className={`text-opacity-60 font-bold ${
+          theme === "dark"
+            ? "text-white "
+            : "text-black "
+        }`}>Manage Booking</a>
+            <a className={`text-opacity-60 font-bold ${
+          theme === "dark"
+            ? "text-white "
+            : "text-black "
+        }`}>Book a Service</a>
+            <a className={`text-opacity-60 font-bold ${
+          theme === "dark"
+            ? "text-white "
+            : "text-black "
+        }`}>Services-To-Do</a>
           </div>
           <div>
             <div className="flex justify-center md:justify-end gap-5 mb-10">
@@ -60,8 +76,12 @@ const Footer = () => {
               </Link>
             </div>
 
-            <p className="text-xl mb-4 text-end font-semibold">Contact Information</p>
-            <p className="text-end">
+            <p className="text-xl mb-4 text-start md:text-end font-semibold">Contact Information</p>
+            <p className={`text-start md:text-end mb-4 md:mb-0 font-bold text-opacity-60 ${
+          theme === "dark"
+            ? "text-white "
+            : "text-black "
+        }`}>
               Location: av. Washington 165, NY CA 54003 <br />
               Phone: +31 85 964 47 25 <br />
               Email: info@filmyscope.com <br />
@@ -69,7 +89,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-black border-opacity-20 w-full pt-4 flex justify-center ">
-          <p className="text-center">
+          <p className="text-cente font-mediumr">
             Copyright © {new Date().getFullYear()} - All right reserved
           </p>
         </div>
