@@ -38,8 +38,7 @@ const router = createBrowserRouter([
             <ServiceDetail></ServiceDetail>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          axiosSecure.get(`/service/${params.id}`),
+        
       },
       {
         path: "manage-service/:email",

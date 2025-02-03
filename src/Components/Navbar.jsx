@@ -4,9 +4,11 @@ import "./Navbar.css";
 import logo from "../assets/logo.png";
 import { AuthContext } from "../Provider/AuthProvider";
 import { BiMoon, BiSun } from "react-icons/bi";
+import { TfiMenu } from "react-icons/tfi";
 
 const Navbar = () => {
   const { user, handleSignOut, theme, handleToggle } = useContext(AuthContext);
+  
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -28,7 +30,12 @@ const Navbar = () => {
 
       {user && (
         <div className="dropdown z-50">
-          <div tabIndex={0} role="button" className="ml-3" onClick={toggleDropdown}>
+          <div
+            tabIndex={0}
+            role="button"
+            className="ml-3"
+            onClick={toggleDropdown}
+          >
             Dashboard
           </div>
 
@@ -89,41 +96,30 @@ const Navbar = () => {
               role="button"
               className="btn btn-ghost lg:hidden px-0 pr-2"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
+              <TfiMenu className="text-xl md:text-2xl" />
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content text-black bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className={`menu ${
+                theme === "dark" ? "text-white " : "text-black"
+              } menu-sm dropdown-content  bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow`}
             >
               {links}
             </ul>
           </div>
-          <img className="h-5 md:h-9 mr-2 md:mr-4" src={logo} alt="" />
+          <Link to={"/"}>
+            {" "}
+            <img className="h-7 md:h-9 mr-2 md:mr-4" src={logo} alt="" />
+          </Link>
           <Link
-            className="font-bold font-logoFont text-red-700 text-xl md:text-2xl xl:text-4xl "
+            to={"/"}
+            className="font-bold hidden sm:block font-logoFont text-red-700 text-xl md:text-2xl xl:text-4xl "
           >
             Electro<span className="text-yellow-400">Care</span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul
-            className={`flex gap-5 items-center px-1 font-bold`}
-          >
-            {links}
-          </ul>
+          <ul className={`flex gap-5 items-center px-1 font-bold`}>{links}</ul>
         </div>
         <div className="navbar-end">
           <div className={`flex items-center xl:mr-2`}>
@@ -154,13 +150,13 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link className=" mr-3" to={"/login"}>
-                <button className="btn bg-red-600 px-2 md:px-4 hover:bg-red-700 text-white border-none">
+              <Link className="mx-2 md:mr-3 md:ml-3" to={"/login"}>
+                <button className="md:py-2 rounded-md md:rounded-md font-semibold bg-red-600 md:bg-red-600 py-1 px-2 md:px-4 hover:bg-red-700 md:text-white text-white border-none">
                   Login
                 </button>
               </Link>
               <Link className="" to={"/register"}>
-                <button className="btn px-2 md:px-4 bg-red-600 hover:bg-red-700 text-white border-none">
+                <button className="md:py-2 rounded-md md:rounded-md font-semibold bg-red-600 md:bg-red-600 py-1 px-2 md:px-4 hover:bg-red-700 md:text-white text-white border-none">
                   Register
                 </button>
               </Link>

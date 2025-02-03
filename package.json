@@ -25,7 +25,8 @@
     "react-toastify": "^11.0.2",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.15.3",
-    "swiper": "^11.1.15"
+    "swiper": "^11.1.15",
+    "swiper-react": "^1.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -10,18 +10,35 @@ import { FcServices } from "react-icons/fc";
 import useAxiosSecure from "../../Components/hooks/useAxiosSecure";
 
 const ServiceDetail = () => {
-  const {theme} = useContext(AuthContext)
+  const { theme } = useContext(AuthContext);
   const axiosSecures = useAxiosSecure();
+  const { id } = useParams();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
+  const [serviceData, setServiceData] = useState({});
   const { user } = useContext(AuthContext);
-  const {data: serviceData} = useLoaderData();
+  // const { data: serviceData } = useLoaderData();
+  useEffect(() => {
+    if (user?.email) {
+      setTimeout(() => {
+        fetchServiceData();
+      }, 1000);
+    }
+  }, [user?.email]);
+
+  const fetchServiceData = () => {
+    axiosSecures
+      .get(`${import.meta.env.VITE_API_URL}/service/${id}?email=${user?.email}`)
+      .then((res) => {
+        setServiceData(res.data);
+      })
+      .catch((err) => console.error("Error fetching services:", err));
+  };
   const { _id, name, photo, email, area, image, title, description, price } =
     serviceData || {};
 
   const handleSubmit = async (e) => {
-    
     e.preventDefault();
     const form = e.target;
     const bookedData = {
@@ -39,13 +56,9 @@ const ServiceDetail = () => {
     };
 
     try {
-      const { data } = await axiosSecures.post(
-        `/bookedService`,
-        bookedData
-      );
-      console.log(data)
+      const { data } = await axiosSecures.post(`/bookedService`, bookedData);
       toast.success("Service Booked Successfully");
-      navigate('/booked-service')
+      navigate("/booked-service");
     } catch (err) {
       toast.error(err.message);
     }
@@ -53,11 +66,13 @@ const ServiceDetail = () => {
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
-      <h2 className={`text-3xl font-semibold text-center text-gray-800 mb-6 ${
+      <h2
+        className={`text-3xl font-semibold text-center text-gray-800 mb-6 ${
           theme === "dark"
             ? "text-white bg-opacity-95 bg-base-300"
             : "text-black bg-gray-200"
-        }`}>
+        }`}
+      >
         Service Details
       </h2>
 
@@ -258,7 +273,6 @@ const ServiceDetail = () => {
               </div>
             </div>
           </form>
-         
         </div>
       </dialog>
     </div>
