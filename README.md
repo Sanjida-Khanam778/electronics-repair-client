@@ -24,6 +24,29 @@ ElectroCare is a service-sharing web application designed to connect users with 
 - Database: Firebase
 - Authentication: Firebase Authentication
 
+  ## Dependencies:
+  ```
+    "dependencies": {
+    "aos": "^2.3.4",
+    "axios": "^1.7.9",
+    "date-fns": "^4.1.0",
+    "firebase": "^11.1.0",
+    "localforage": "^1.10.0",
+    "match-sorter": "^8.0.0",
+    "react": "^18.3.1",
+    "react-datepicker": "^7.5.0",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.54.2",
+    "react-icons": "^5.4.0",
+    "react-router-dom": "^7.1.0",
+    "react-toastify": "^11.0.2",
+    "sort-by": "^1.2.0",
+    "sweetalert2": "^11.15.3",
+    "swiper": "^11.1.15",
+    "swiper-react": "^1.0.0"
+  }
+  ```
+
 ## Getting Started
 ### Prerequisites
 - Node.js
