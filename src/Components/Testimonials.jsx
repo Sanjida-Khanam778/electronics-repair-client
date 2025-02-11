@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const testimonials = [
-  {
+  { 
     name: "John Doe",
     role: "Customer",
     image: "https://i.pravatar.cc/100?img=1",
