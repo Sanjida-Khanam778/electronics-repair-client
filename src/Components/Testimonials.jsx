@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
 const testimonials = [
   {
     name: "John Doe",
@@ -23,8 +26,9 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+    const {theme} = useContext(AuthContext)
   return (
-    <section className="py-12 lg:py-24 bg-gray-100 w-full lg:my-24">
+    <section className={`py-12 lg:py-24 w-full lg:my-24 ${theme==='light' && 'bg-slate-50'}`}>
       <div className="max-w-6xl mx-auto px-4 text-center">
         <div className="flex flex-col justify-center items-center">
           <h2 className="text-2xl lg:text-5xl font-medium" data-aos="fade-up">

@@ -12,7 +12,6 @@ import ServiceToDo from "../Layout/Pages/ServiceToDo";
 import ServiceDetail from "../Layout/Pages/ServiceDetail";
 import PrivateRoute from "../Components/PrivateRoute";
 import UpdateService from "../Layout/Pages/UpdateService";
-import { axiosSecure } from "../Components/hooks/useAxiosSecure";
 
 const router = createBrowserRouter([
   {
