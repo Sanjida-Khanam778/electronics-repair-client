@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import logoFooter from "../assets/logo-big.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const { theme } = useContext(AuthContext);
+  const { theme, user } = useContext(AuthContext);
   return (
     <div>
       <footer
@@ -38,38 +38,45 @@ const Footer = () => {
             ? "text-white "
             : "text-black "
         }`}>Explore</h6>
-            <a className={`text-opacity-60 font-bold ${
+            <Link to={'/allServices'} className={`text-opacity-60 font-bold ${
           theme === "dark"
             ? "text-white "
             : "text-black "
-        }`}>Services</a>
-            <a className={`text-opacity-60 font-bold ${
+        }`}>Services</Link>
+            <Link to={`/manage-service/${user?.email}`} className={`text-opacity-60 font-bold ${
           theme === "dark"
             ? "text-white "
             : "text-black "
-        }`}>Manage Booking</a>
-            <a className={`text-opacity-60 font-bold ${
+        }`}>Manage Booking</Link>
+            <Link to={'/booked-service'} className={`text-opacity-60 font-bold ${
           theme === "dark"
             ? "text-white "
             : "text-black "
-        }`}>Book a Service</a>
-            <a className={`text-opacity-60 font-bold ${
+        }`}>Book a Service</Link>
+            <Link to={'/service-to-do'} className={`text-opacity-60 font-bold ${
           theme === "dark"
             ? "text-white "
             : "text-black "
-        }`}>Services-To-Do</a>
+        }`}>Services-To-Do</Link>
           </div>
           <div>
             <div className="flex justify-center md:justify-end gap-5 mb-10">
-              <Link
+              <Link target="_blank"
                 to={"https://www.linkedin.com/in/sanjida-khanam-ice"}
                 className="text-4xl text-blue-700"
               >
                 <FaLinkedin></FaLinkedin>
               </Link>
 
-              <Link
-                to={"https://www.facebook.com"}
+              <Link target="_blank"
+                to={"https://github.com/Sanjida-Khanam778"}
+                className="text-4xl"
+              >
+                <FaGithub></FaGithub>
+              </Link>
+
+              <Link target="_blank"
+                to={"https://www.facebook.com/profile.php?id=100034140082279"}
                 className="text-4xl text-blue-600"
               >
                 <FaFacebook></FaFacebook>
