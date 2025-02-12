@@ -117,7 +117,7 @@ const Register = () => {
                 {error && <p className="mb-2 text-red-500 text-sm">{error}</p>}
 
                 <div className="form-control mt-4">
-                  <button className="btn bg-red-600 text-white"> {loading ? (
+                  <button className="btn bg-red-600 hover:bg-red-700 text-white"> {loading ? (
                 <CgSpinnerAlt className="animate-spin m-auto" />
               ) : (
                 "Register"
@@ -126,7 +126,7 @@ const Register = () => {
               </form>
               <button
                 onClick={handleSocialLogin}
-                className="btn bg-red-600 text-white w-10/12 mx-auto"
+                className="btn bg-red-600 hover:bg-red-700 text-white w-10/12 mx-auto"
               >
                 Register with Google
                 <FcGoogle className="text-2xl"></FcGoogle>
