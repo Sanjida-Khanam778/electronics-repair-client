@@ -3,22 +3,27 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { format } from "date-fns";
 import useAxiosSecure from "../../Components/hooks/useAxiosSecure";
 import { VscEmptyWindow } from "react-icons/vsc";
+import Loader from "./Loader";
 
 const BookedService = () => {
   const [services, setServices] = useState([]);
   const { user } = useContext(AuthContext);
-  const axiosSecures = useAxiosSecure();
+  const axiosSecures = useAxiosSecure();  
+  const [loader, setLoader] = useState(false)
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   useEffect(() => {
+    setLoader(true)
     fetchServiceData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.email]);
   const fetchServiceData = async () => {
     const { data } = await axiosSecures.get(`/bookedServices/${user?.email}`);
     setServices(data);
+    setLoader(false)
   };
   return (
     <div className="w-11/12 md:w-9/12 mx-auto my-10 md:my-20">
@@ -35,7 +40,8 @@ const BookedService = () => {
         </p>
       </div>
       <div className="overflow-x-auto">
-        <table className="table">
+        {
+          loader? <Loader></Loader>:<table className="table">
           <thead>
             <tr className="text-xl">
               <th>Service Info</th>
@@ -102,6 +108,7 @@ const BookedService = () => {
                         )}
           </tbody>
         </table>
+        }
       </div>
     </div>
   );

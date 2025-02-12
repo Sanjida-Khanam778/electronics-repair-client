@@ -3,9 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { CgSpinnerAlt } from "react-icons/cg";
 
 const Register = () => {
-  const { setUser, handleGoogleLogin, handleRegister, updateUserProfile } =
+  const { setUser, handleGoogleLogin, handleRegister, updateUserProfile, loading } =
     useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -116,7 +117,11 @@ const Register = () => {
                 {error && <p className="mb-2 text-red-500 text-sm">{error}</p>}
 
                 <div className="form-control mt-4">
-                  <button className="btn bg-red-600 text-white">Register</button>
+                  <button className="btn bg-red-600 text-white"> {loading ? (
+                <CgSpinnerAlt className="animate-spin m-auto" />
+              ) : (
+                "Register"
+              )}</button>
                 </div>
               </form>
               <button

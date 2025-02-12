@@ -9,20 +9,25 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../Components/hooks/useAxiosSecure";
 import { signalContext } from "../../Provider/SignalProvider";
 import { VscEmptyWindow } from "react-icons/vsc";
+import Loader from "./Loader";
 
 const ManageService = () => {
   const { signal, setSignal } = useContext(signalContext);
   const axiosSecures = useAxiosSecure();
   const [services, setServices] = useState([]);
   const { user } = useContext(AuthContext);
+  const [loader, setLoader] = useState(false)
 
   useEffect(() => {
+    setLoader(true)
     axiosSecures.get(`/services/${user?.email}`).then((res) => {
       setServices(res.data);
+      setLoader(false)
     });
   }, [axiosSecures, user?.email, signal]);
 
   const handleDelete = async (id) => {
+
     try {
       axiosSecures
         .delete(`${import.meta.env.VITE_API_URL}/service/${id}`)
@@ -64,17 +69,19 @@ const ManageService = () => {
         </p>
       </div>
       <div className="overflow-x-auto w-11/12 md:w-9/12 mx-auto">
-        <table className="table">
-          <thead>
-            <tr className="text-xl">
-              <th>Service Name</th>
-              <th>Price</th>
-              <th>Description</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {services && services.length > 0 ? (
+      {
+        loader?<Loader></Loader>: <table className="table">
+        <thead>
+          <tr className="text-xl">
+            <th>Service Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+           services && services.length > 0 ? (
               services.map((service) => (
                 <tr key={service._id}>
                   <td>
@@ -125,9 +132,13 @@ const ManageService = () => {
                   </h2>
                 </td>
               </tr>
-            )}
-          </tbody>
-        </table>
+            )
+          }
+         
+        </tbody>
+      </table>
+      }
+       
       </div>
     </div>
   );

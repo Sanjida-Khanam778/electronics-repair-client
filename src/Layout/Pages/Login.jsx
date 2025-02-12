@@ -4,9 +4,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
+import { CgSpinnerAlt } from "react-icons/cg";
 
 const Login = () => {
-  const { setUser, handleGoogleLogin, handleLogin } = useContext(AuthContext);
+  const { setUser, handleGoogleLogin, handleLogin, loading } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const {
@@ -82,12 +83,16 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-4">
-                <button className="btn bg-red-600 text-white">Login</button>
+                <button className="btn bg-red-600 hover:bg-red-700 text-white"> {loading ? (
+                <CgSpinnerAlt className="animate-spin m-auto" />
+              ) : (
+                "Login"
+              )}</button>
               </div>
             </form>
             <button
               onClick={handleSocialLogin}
-              className="btn bg-red-600 text-white w-10/12 mx-auto"
+              className="btn bg-red-600 hover:bg-red-700 text-white w-10/12 mx-auto"
             >
               Login with Google <FcGoogle className="text-2xl"></FcGoogle>
             </button>

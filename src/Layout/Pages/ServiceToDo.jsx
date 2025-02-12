@@ -4,20 +4,24 @@ import ServiceStatus from "../../Components/ServiceStatus";
 import useAxiosSecure from "../../Components/hooks/useAxiosSecure";
 import { ScrollRestoration } from "react-router-dom";
 import { VscEmptyWindow } from "react-icons/vsc";
+import Loader from "./Loader";
 
 const ServiceToDo = () => {
   const [services, setServices] = useState([]);
   const { user } = useContext(AuthContext);
-  const axiosSecures = useAxiosSecure();
+  const axiosSecures = useAxiosSecure();  
+  const [loader, setLoader] = useState(false)
+
 
   useEffect(() => {
+    setLoader(true)
     fetchServiceData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.email]);
   const fetchServiceData = async () => {
     const { data } = await axiosSecures.get(`/myServicesToDo/${user?.email}`);
     setServices(data);
-    console.log(data);
+    setLoader(false)
   };
   return (
     <div className="my-10">
@@ -32,7 +36,8 @@ const ServiceToDo = () => {
         </p>
       </div>
       <div className="overflow-x-auto mx-auto w-11/12 md:w-10/12">
-        <table className="table">
+        {
+          loader? <Loader></Loader>:<table className="table">
           <thead>
             <tr className="text-xl">
               <th>Service Info</th>
@@ -63,6 +68,7 @@ const ServiceToDo = () => {
             )}
           </tbody>
         </table>
+        }
       </div>
     </div>
   );

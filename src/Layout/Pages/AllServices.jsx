@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AllServicesCard from "../../Components/AllServicesCard";
+import Loader from "./Loader";
 
 const AllServices = () => {
   const [services, setServices] = useState([]);
   const [search, setSearch] = useState("");
+  const [loader, setLoader] = useState(false)
   const [sortOption, setSortOption] = useState("default"); // State for sorting
 
   useEffect(() => {
@@ -16,11 +18,12 @@ const AllServices = () => {
   }, [search, sortOption]);
 
   const fetchServiceData = () => {
+    setLoader(true)
     axios
       .get(`${import.meta.env.VITE_API_URL}/allServices?search=${search}`)
       .then((res) => {
         let data = res.data;
-
+setLoader(false)
         // Sorting Logic
         if (sortOption === "price-asc") {
           data.sort((a, b) => a.price - b.price); // Sort by ascending price
@@ -78,11 +81,14 @@ const AllServices = () => {
     </div>
 
       {/* Services Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {
+        loader?<Loader></Loader>: <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {services.map((service) => (
           <AllServicesCard key={service._id} service={service} />
         ))}
       </div>
+      }
+     
     </div>
   );
 };
