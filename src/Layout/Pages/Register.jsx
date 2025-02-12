@@ -116,12 +116,12 @@ const Register = () => {
                 {error && <p className="mb-2 text-red-500 text-sm">{error}</p>}
 
                 <div className="form-control mt-4">
-                  <button className="btn btn-primary">Register</button>
+                  <button className="btn bg-red-600 text-white">Register</button>
                 </div>
               </form>
               <button
                 onClick={handleSocialLogin}
-                className="btn btn-primary w-10/12 mx-auto"
+                className="btn bg-red-600 text-white w-10/12 mx-auto"
               >
                 Register with Google
                 <FcGoogle className="text-2xl"></FcGoogle>

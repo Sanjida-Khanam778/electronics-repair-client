@@ -82,12 +82,12 @@ const Login = () => {
                 </label>
               </div>
               <div className="form-control mt-4">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn bg-red-600 text-white">Login</button>
               </div>
             </form>
             <button
               onClick={handleSocialLogin}
-              className="btn btn-primary w-10/12 mx-auto"
+              className="btn bg-red-600 text-white w-10/12 mx-auto"
             >
               Login with Google <FcGoogle className="text-2xl"></FcGoogle>
             </button>
