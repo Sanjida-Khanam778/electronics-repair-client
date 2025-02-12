@@ -27,7 +27,9 @@ const Navbar = () => {
       <li>
         <NavLink to={"/allServices"}>Services</NavLink>
       </li>
-
+      <li>
+        <NavLink to={"/about"}>About Us</NavLink>
+      </li>
       {user && (
         <div className="dropdown z-50">
           <div

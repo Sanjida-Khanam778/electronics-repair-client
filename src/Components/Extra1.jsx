@@ -2,6 +2,7 @@ import React from "react";
 import { FaTools, FaClock, FaDollarSign, FaShieldAlt } from "react-icons/fa";
 import "aos/dist/aos.css";
 import AOS from "aos";
+import { Link } from "react-router-dom";
 
 const Extra1 = () => {
   React.useEffect(() => {
@@ -43,9 +44,10 @@ const Extra1 = () => {
           <p className="text-gray-600 flex-grow">
             Certified and experienced professionals
           </p>
+          <Link to={'/about'}>
           <button className="px-4 py-2 btn mt-2 bg-red-600 text-white rounded-full hover:bg-red-500">
             Learn More About Us
-          </button>
+          </button></Link>
         </div>
         <div
           className="p-6 border border-red-600 rounded-3xl shadow-xl flex flex-col items-center text-center"
@@ -62,9 +64,10 @@ const Extra1 = () => {
           <p className="text-gray-600 flex-grow">
             Same-day service for most repairs
           </p>
+          <Link to={'/about'}>
           <button className="px-4 py-2 btn mt-2 bg-red-600 text-white rounded-full hover:bg-red-500">
             Learn More About Us
-          </button>
+          </button></Link>
         </div>
         <div
           className="p-6 border border-red-600 rounded-3xl shadow-xl flex flex-col items-center text-center"
@@ -81,9 +84,10 @@ const Extra1 = () => {
           <p className="text-gray-600 flex-grow">
             No hidden costs, upfront quotes
           </p>
+          <Link to={'/about'}>
           <button className="px-4 py-2 btn mt-2 bg-red-600 text-white rounded-full hover:bg-red-500">
             Learn More About Us
-          </button>
+          </button></Link>
         </div>
         <div
           className="p-6 border border-red-600 rounded-3xl shadow-xl flex flex-col items-center text-center"
@@ -100,9 +104,10 @@ const Extra1 = () => {
           <p className="text-gray-600">
             All repairs backed by a satisfaction guarantee
           </p>
+          <Link to={'/about'}>
           <button className="px-4 py-2 btn mt-2 bg-red-600 text-white rounded-full hover:bg-red-500">
             Learn More About Us
-          </button>
+          </button></Link>
         </div>
       </div>
     </div>

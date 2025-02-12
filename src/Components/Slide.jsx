@@ -18,12 +18,12 @@ const Slide = ({ image, text, subtitle }) => {
             {subtitle}
           </p>
           <br />
-          <Link
+          {/* <Link
             to='/add-job'
             className='btn w-full bg-red-600 px-5 py-4 mt-4 text-sm font-medium text-white capitalize transition-colors duration-300 transform rounded-md lg:w-auto hover:bg-red-700 focus:outline-none focus:bg-gray-500'
           >
             Book Your Service
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>

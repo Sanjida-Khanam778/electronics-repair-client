@@ -12,6 +12,7 @@ import ServiceToDo from "../Layout/Pages/ServiceToDo";
 import ServiceDetail from "../Layout/Pages/ServiceDetail";
 import PrivateRoute from "../Components/PrivateRoute";
 import UpdateService from "../Layout/Pages/UpdateService";
+import About from "../Layout/Pages/About";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,6 @@ const router = createBrowserRouter([
             <ServiceDetail></ServiceDetail>
           </PrivateRoute>
         ),
-        
       },
       {
         path: "manage-service/:email",
@@ -68,6 +68,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register></Register>,
+      },
+      {
+        path: "about",
+        element: <About></About>,
       },
     ],
   },

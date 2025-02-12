@@ -38,7 +38,7 @@ const AllServicesCard = ({ service }) => {
 
         <div className="flex justify-between text-sm md:text-base text-gray-700 mb-4 flex-grow">
           <p className="flex items-center">
-            <FaDollarSign className="mr-2 " />Price: ${price}
+            <FaDollarSign className="mr-2" />Price: ${price}
           </p>
           <p className="flex items-center">
             <FaMapMarkerAlt className="mr-2 " />Area: {area}
