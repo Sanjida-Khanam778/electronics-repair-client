@@ -5,20 +5,30 @@ import AllServicesCard from "../../Components/AllServicesCard";
 const AllServices = () => {
   const [services, setServices] = useState([]);
   const [search, setSearch] = useState("");
-  console.log(search)
+  const [sortOption, setSortOption] = useState("default"); // State for sorting
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
     fetchServiceData();
-  }, [search]);
+  }, [search, sortOption]);
 
   const fetchServiceData = () => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/allServices?search=${search}`)
       .then((res) => {
-        setServices(res.data);
+        let data = res.data;
+
+        // Sorting Logic
+        if (sortOption === "price-asc") {
+          data.sort((a, b) => a.price - b.price); // Sort by ascending price
+        } else if (sortOption === "price-desc") {
+          data.sort((a, b) => b.price - a.price); // Sort by descending price
+        }
+
+        setServices(data);
       })
       .catch((err) => console.error("Error fetching services:", err));
   };
@@ -27,9 +37,18 @@ const AllServices = () => {
     <div className="max-w-screen-xl mx-auto px-4 py-8">
       <h2 className="text-3xl font-bold text-center mb-6">
         All Services ({services.length})
-      </h2> 
-      <label className="input input-bordered flex items-center gap-2 w-2/3 md:w-1/3 mx-auto mb-4 md:mb-10">
-        <input type="text" onChange={e=>setSearch(e.target.value)} name="search" className="grow" placeholder="Search" />
+      </h2>
+
+    <div className="flex flex-col md:flex-row gap-6 justify-center">
+        {/* Search Bar */}
+        <label className="input input-bordered flex items-center gap-2 mb-4 md:mb-10 md:w-1/4">
+        <input
+          type="text"
+          onChange={(e) => setSearch(e.target.value)}
+          name="search"
+          className="grow"
+          placeholder="Search"
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
@@ -44,7 +63,22 @@ const AllServices = () => {
         </svg>
       </label>
 
-      <div className="grid grid-cols-1 gap-8">
+      {/* Sorting Dropdown */}
+      <div className="mb-6 md:w-1/4">
+        <select
+          onChange={(e) => setSortOption(e.target.value)}
+          value={sortOption}
+          className="select select-bordered w-full"
+        >
+          <option value="default">Sort by</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+        </select>
+      </div>
+    </div>
+
+      {/* Services Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {services.map((service) => (
           <AllServicesCard key={service._id} service={service} />
         ))}

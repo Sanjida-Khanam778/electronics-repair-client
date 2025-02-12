@@ -6,7 +6,7 @@ const AllServicesCard = ({ service }) => {
   const { title, area, price, description, image, name, photo, _id } = service;
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 border rounded-3xl w-11/12 md:w-2/3 mx-auto p-6 shadow-lg bg-white hover:shadow-2xl transition-all">
+    <div className="flex flex-col md:flex-row gap-6 border rounded-3xl w-11/12 md:w-2/3 lg:w-full mx-auto p-6 shadow-lg bg-white hover:shadow-2xl transition-all">
       <div className="flex-shrink-0 w-full md:w-1/3">
         <img
           src={image}
