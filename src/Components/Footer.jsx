@@ -52,7 +52,7 @@ const Footer = () => {
           theme === "dark"
             ? "text-white "
             : "text-black "
-        }`}>Book a Service</Link>
+        }`}>Booked Services</Link>
             <Link to={'/service-to-do'} className={`text-opacity-60 font-bold ${
           theme === "dark"
             ? "text-white "
